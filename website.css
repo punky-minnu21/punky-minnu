@@ -1,0 +1,42 @@
+.A-button {
+    background-color: rgb(255, 216, 20);
+  color: black;
+  height: 39px;
+  width: 200px;
+  border-color: rgb(255, 216, 20);
+  border-style: solid;
+  border-radius: 18px;
+  font-weight:bold;
+  font-size:medium;
+  cursor: pointer;
+  margin-bottom: 10px;
+  }
+
+  .B-button { 
+    background-color: rgb(234, 150, 23);
+  color: black;
+  height: 39px;
+  width: 210px;
+  border-color: rgb(255, 216, 20);
+  border-style: solid;
+  border-radius: 18px;
+  font-weight:bold;
+  font-size:medium;
+  cursor: pointer;
+  margin-bottom: 10px;
+  }
+
+  .A-paragraph {
+color: black;
+font-weight: bold;
+font-size: larger;
+
+  }
+  .B-paragraph {
+color: rgb(0, 118,0);
+font-weight: bold;
+  }
+
+  .c-ahref {
+    color: rgb(0,113,133);
+  }
