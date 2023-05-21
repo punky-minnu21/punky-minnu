@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles for the clickable document */
+    body {
+      background-color: lemonchiffon;
+    }
+    
+    .clickable-item {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      background-color: orange;
+      cursor: pointer;
+      color: white;
+    }
+    
+    .message-box {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    
+    .message {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+    }
+    
+    .reply {
+      margin-left: 20px;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // React component for clickable item
+    const ClickableItem = ({ label, onClick }) => (
+      <div className="clickable-item" onClick={onClick}>
+        {label}
+      </div>
+    );
+
+    // React component for the message box
+    const MessageBox = ({ messages }) => (
+      <div className="message-box">
+        {messages.map((message, index) => (
+          <div className="message" key={index}>
+            {message.text}
+            {message.replies && message.replies.length > 0 && (
+              <div className="reply">
+                {message.replies.map((reply, replyIndex) => (
+                  <div key={replyIndex}>{reply}</div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+
+    // React component for the comment input
+    class CommentInput extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          comment: ''
+        };
+      }
+
+      handleInputChange = (event) => {
+        this.setState({ comment: event.target.value });
+      };
+
+      handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle comment submission
+        // You can add your logic here
+        console.log('Submitted comment:', this.state.comment);
+        const newMessage = {
+          text: this.state.comment,
+          replies: []
+        };
+        this.props.addMessage(newMessage);
+        this.setState({ comment: '' });
+      };
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              value={this.state.comment}
+              onChange={this.handleInputChange}
+              placeholder="Enter your comment"
+            />
+            <button type="submit">Submit</button>
+          </form>
+        );
+      }
+    }
+
+    // React component for the search bar
+    const SearchBar = () => (
+      <form action="https://www.google.com/search" target="_blank">
+        <input type="text" name="q" placeholder="Search on Google" />
+        <button type="submit">Search</button>
+      </form>
+    );
+
+    // React component for the clickable document
+    class ClickableDocument extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          messages: []
+        };
+      }
+
+      addMessage = (message) => {
+        this.setState((prevState) => ({
+          messages: [...prevState.messages, message]
+        }));
+      };
+
+      addReply = (index, reply) => {
+        this.setState((prevState) => {
+          const messages = [...prevState.messages];
+          messages[index].replies = messages[index].replies || [];
+          messages[index].replies.push(reply);
+          return { messages };
+        });
+      };
+
+      render() {
+        return (
+          <div>
+            <ClickableItem
+              label="Learning"
+              onClick={() =>
+                this.addMessage({
+                  text: 'We should know the basic idea of how to create interactive web pages using HTML, CSS, JavaScript, DOM, and Functions. This helps us understand business requirements and create small tasks such as application forms.'
+                })
+              }
+            />
+            <ClickableItem
+              label="Resume"
+              onClick={() =>
+                this.addMessage({
+                  text: 'The resume is key for profile shortlisting. It should include the latest technologies in the market, even if we have only basic knowledge. Mentioning previous experience and tools used is important. The resume plays a significant role in job applications.'
+                })
+              }
+            />
+            <ClickableItem
+              label="Interview"
+              onClick={() =>
+                this.addMessage({
+                  text: 'Before the interview, there will be a screening call from recruiters to assess skills, experience, and visa status. Standard interview scripts are used. Technical interviews may have multiple rounds. Proxy interviews can be arranged. The number of rounds depends on the company.'
+                })
+              }
+            />
+            <ClickableItem
+              label="Job"
+              onClick={() =>
+                this.addMessage({
+                  text: 'If everything goes well, there will be background checks and onboarding. As experienced hires, we need to be confident in handling tasks and managing responsibilities. Support may be available initially, but eventually, we will be expected to work independently.'
+                })
+              }
+            />
+
+            <MessageBox messages={this.state.messages} />
+            <CommentInput addMessage={this.addMessage} />
+            <SearchBar />
+          </div>
+        );
+      }
+    }
+
+    // Render the ClickableDocument component into the root element
+    ReactDOM.render(<ClickableDocument />, document.getElementById('root'));
+
+    // Generate URL for sharing
+    const url = window.location.href;
+    const shareLinkElement = document.createElement('a');
+    shareLinkElement.href = url;
+    shareLinkElement.textContent = 'Share this page';
+    document.body.appendChild(shareLinkElement);
+  </script>
+</body>
+</html>

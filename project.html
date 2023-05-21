@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mota baccha's gym</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-image: url("intro-to-html/styles/g backgrnd.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        /* background:rgb(195, 123, 116);*/
+        font-family: 'Baloo Bhai', cursive;
+        color: rgb(194, 185, 232);
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .left {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+
+        left: 40px;
+    }
+
+    .left img {
+        width: 150px;
+
+
+    }
+
+    .left div {
+        line-height: 10px;
+        font-size: 18px;
+        text-align: center;
+        color: rgb(244, 243, 248);
+
+    }
+
+    .mid {
+        display: block;
+        margin: 29px auto;
+        width: 46%;
+
+
+    }
+
+    .navbar {
+        display: inline-block;
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .navbar li a {
+        color: rgb(181, 142, 229);
+        text-decoration: none;
+        padding: 30px 23px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: underline;
+        color: rgb(223, 236, 232);
+    }
+
+    .right {
+        display: inline-block;
+        position: absolute;
+        right: 40px;
+        top: 30px;
+
+    }
+
+    .btn {
+        font-family: 'Baloo Bhai', cursive;
+        margin: 8px 39px;
+        background: rgb(162, 166, 244);
+        color: black;
+        font-size: 16px;
+        padding: 4px 12px;
+        border: 2px solid black;
+        border-radius: 10px;
+        cursor: pointer;
+
+    }
+
+    .btn:hover {
+        background-color: rgb(204, 216, 252);
+    }
+
+    .container {
+        border: 2px solid rgb(222, 245, 192);
+        margin: 106px 220px;
+        padding: 49px;
+        width: 33%;
+        border-radius: 20px;
+    }
+
+    .container h1 {
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .container button {
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+    }
+
+    .form-group input {
+        font-family: 'Baloo Bhai', cursive;
+        text-align: center;
+        display: block;
+        width: 150px;
+        padding: 1px;
+        border: 2px solid;
+        background-color: rgb(202, 213, 246);
+        margin: 11px auto;
+        font-size: 15px;
+        border-radius: 4px;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="left">
+            <img src="intro-to-html/logo g.jpg" alt="">
+            <div>Mota Baccha's Fitness</div>
+        </div>
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Fitness Calculator</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <button class="btn">
+                Call Us Now
+            </button><button class="btn">
+                Email Us Now
+            </button>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Join the Allahabad's best gym now</h1>
+        <form action="noaction.php">
+            <div class="form-group">
+                <input type="text" placeholder="Enter your Name">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Enter your Gender">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Enter your Age">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Enter your Phone number">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Enter your Email ID">
+            </div>
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

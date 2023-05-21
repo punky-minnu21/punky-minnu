@@ -1,0 +1,14 @@
+.model{
+    font-weight: bold;
+    font-size: 35px;
+    font-family: montserrat;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.order{
+    color: gray;
+    font-size: 22px;
+    margin-left: 300px;
+    margin-top: 0px;
+}
